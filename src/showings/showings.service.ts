@@ -82,10 +82,10 @@ export class ShowingsService {
       });
     }
 
-    qb.orderBy('showing.starts_at', sort.toUpperCase() as 'ASC' | 'DESC').addOrderBy(
-      'showing.id',
+    qb.orderBy(
+      'showing.starts_at',
       sort.toUpperCase() as 'ASC' | 'DESC',
-    );
+    ).addOrderBy('showing.id', 'ASC');
 
     qb.skip((page - 1) * limit).take(limit);
 
